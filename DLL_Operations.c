@@ -1,14 +1,3 @@
-/*
-
-Types of operations in Linked List are 
-
-1. Traversing --> Accessing each element of a linked list
-2. Insertion 
-3. Deletion
-4. Search
-5. Sort 
-Pointer holding an address of anonther pointer --> double pointer
-*/ 
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -16,7 +5,7 @@ struct Node
 {
    int data;
    struct Node *next;
-   
+   struct Node *prev;
  
 };
 
@@ -26,15 +15,20 @@ struct Node* createNode(int data){
   struct Node* newNode= (struct Node*)malloc(sizeof(struct  Node));
   newNode->data=data;
   newNode->next=NULL;
+  newNode->prev=NULL;
   return newNode;
 }
+
 
 void insertNodeatBegeninig(struct Node **head, int data){
 
     struct Node *newNode=createNode(data);
+    if(*head==NULL){
+        *head=newNode;
+    }
     newNode->next=*head;
+    (*head)->prev=newNode;
     *head=newNode; 
-
 }
 
 void insertNodeatEnd(struct Node **head, int data){
@@ -52,6 +46,7 @@ void insertNodeatEnd(struct Node **head, int data){
     }
     
     temp->next=newNode;
+    newNode->prev=temp;
 
 }
 
@@ -72,10 +67,17 @@ void insertNodeatPostion(struct Node **head, int data,int position){
     }
 
     newNode->next=temp->next;
+    newNode->prev=temp;
+
+    if(temp->next!=NULL){
+        temp->next->prev=newNode;
+
+    }
+
     temp->next=newNode;
    }
 
-   void deleteatheBegening(struct Node **head)
+  void deleteatheBegening(struct Node **head)
    {
           if(*head==NULL){
             printf("List is empty");
@@ -86,7 +88,6 @@ void insertNodeatPostion(struct Node **head, int data,int position){
           free(temp);
        
    }
-
    void deleteathEnd(struct Node **head)
    {
           if(*head==NULL){
@@ -113,9 +114,10 @@ void insertNodeatPostion(struct Node **head, int data,int position){
      
    }
 
+   
       void deleteNodeatPosition(struct Node **head,int position)
-   {
-          if(*head==NULL){
+     {
+        if(*head==NULL){
             printf("List is empty");
             return;
           }
@@ -133,14 +135,25 @@ void insertNodeatPostion(struct Node **head, int data,int position){
         if(temp->next==NULL || temp==NULL){
             printf("Position is out of range.. \n");
         }
-         struct Node *next= temp->next->next;
-         free(temp->next);
-          temp->next=next;
-                   
+
+        // to check if a node is existing in front 
+        if(temp->next!=NULL){
+
+            temp->next->prev=temp->prev;
+        }
+
+        // to check if node is existing behind
+
+        if(temp->prev!=NULL)
+        {
+            temp->prev->next=temp->next;
+        }
+
+         free(temp);         
      
    }
 
-     void TraversetheNodes(struct Node* head){
+        void ForwardTraversalofNodes(struct Node* head){
 
         struct Node *temp=head;
 
@@ -151,18 +164,37 @@ void insertNodeatPostion(struct Node **head, int data,int position){
    
      }
 
+     void BackwardTraversalofNodes(struct Node* head){
+
+        struct Node *temp=head;
+
+        if(temp==NULL){
+          printf("List is empty");
+        }
+
+        while (temp->next!=NULL)
+        {
+            temp=temp->next;
+        }
+
+        while (temp!=NULL)
+        {
+        printf("Backward data is %d \n",temp->data);
+        temp=temp->prev;
+        }
+        
+     }
+
    int main(){
-  
+
      struct Node *head=NULL;
      insertNodeatBegeninig(&head,10);
      insertNodeatEnd(&head,12);
      insertNodeatBegeninig(&head,5);
      insertNodeatPostion(&head,7,1);
-     TraversetheNodes(head);
-     deleteathEnd(&head);
-     printf("After deleting the end node traversed data is \n");
-     TraversetheNodes(head);
+     ForwardTraversalofNodes(head);
+     BackwardTraversalofNodes(head);
+     //deleteathEnd(&head);
+     //printf("After deleting the end node traversed data is \n");
+    // TraversetheNodes(head);
    }
-
-
-
