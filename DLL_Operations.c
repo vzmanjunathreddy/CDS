@@ -12,7 +12,7 @@ struct Node
 // create a newNode
 
 struct Node* createNode(int data){
-  struct Node* newNode= (struct Node*)malloc(sizeof(struct  Node));
+  struct Node* newNode= (struct Node*)malloc(sizeof(struct Node));
   newNode->data=data;
   newNode->next=NULL;
   newNode->prev=NULL;
@@ -25,6 +25,7 @@ void insertNodeatBegeninig(struct Node **head, int data){
     struct Node *newNode=createNode(data);
     if(*head==NULL){
         *head=newNode;
+        return;
     }
     newNode->next=*head;
     (*head)->prev=newNode;
@@ -189,12 +190,13 @@ void insertNodeatPostion(struct Node **head, int data,int position){
 
      struct Node *head=NULL;
      insertNodeatBegeninig(&head,10);
-     insertNodeatEnd(&head,12);
-     insertNodeatBegeninig(&head,5);
-     insertNodeatPostion(&head,7,1);
+    insertNodeatEnd(&head,12);
+    insertNodeatBegeninig(&head,5);
+    insertNodeatPostion(&head,7,1);
+    ForwardTraversalofNodes(head);
+    printf("Backward traversed data is \n");
+    BackwardTraversalofNodes(head);
+     deleteathEnd(&head);
+     printf("After deleting the end node traversed data is \n");
      ForwardTraversalofNodes(head);
-     BackwardTraversalofNodes(head);
-     //deleteathEnd(&head);
-     //printf("After deleting the end node traversed data is \n");
-    // TraversetheNodes(head);
    }
