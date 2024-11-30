@@ -1,0 +1,102 @@
+DS --> Collection of data and their relationships. 
+   --> how you arrange the data so that it can be accessed and modified easily.
+
+ Characteristics of DS
+===========================
+
+    Efficiency: choice of ds affects the speed and usage 
+    Memory Management: ensures that data is stored in memory efficiently
+    Organization: logical organizing of data and making it easier to process
+
+Types of Data structure:
+ 
+   Primitive Data data types: int, char, Boolean, float
+   non primitive : Array, Stack,Queues
+
+Linear Data Structures :
+
+  Organize the data elements in a sequential manner
+
+  Array : is as Static Data structure
+========
+ 	 Collection of elements of same type, 
+  	 stored in contiguous memory locations
+         Accessing of elements using index
+         Operations like search and Sorting are efficient.
+        size of an array is static we need to resize for new memory allocation
+
+
+  Linked List: Dynamic DS
+=============
+
+     LL is a collection of nodes, where each node has data and address of next node.
+     LL allows dynamic memory allocation where it can grow and shrink
+
+
+Stacks: 
+==============
+	Collection of Elements
+	LIFO (Last In First out)
+        PUSH
+        POP -- Removing
+        PEEK--- taking last element of stack
+
+     ex: Text editors
+
+Queue:
+
+	Collection of Elements
+	FIFO (Last In First out)
+     ex:Printing of data , Operating Systems Task scheduling based on QUEUE
+
+Non Linear DS: stores the data hierarchical or graph like manner one element can be connected to multiple elements 
+
+  Trees: Hierarchical structure where each element has parent except root node (top node) and have child nodes left or right
+
+Most common type of tree is Binary tree : each node has at most two child nodes
+
+Faster data retrieval , Searching 
+ Ex: database indexing 
+  
+ 
+Students
+Id (Uniquely identifies the object) Primary key (uniquely identifies each row)
+Name
+Age,
+City
+State
+
+Marks
+Id   Primary Key
+StudentId Foriegnkey
+Subj1 
+Subj2
+Subj3
+Subj4
+Time and Space C
+     
+
+Englsih
+ Internal 
+ Extenal 
+
+
+Graphs: Collection of Nodes where each node is connected , can have a complex relationships
+
+
+Insertion
+Deletion
+Traversal
+Search
+Sorting
+
+Time and Space Complexity:
+
+Arrary: insertion and deletion takes at  O(n) time, access O(1)
+LL : insertion and deletion takes at  O(1) time, searching O(n)
+
+ 
+
+ 
+
+

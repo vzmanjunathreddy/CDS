@@ -1,0 +1,123 @@
+Pointer:
+
+Variable which can holds the memory address of another 
+     ===>Variable
+     ==>function
+     ===>pointer
+
+Advantage ===> dynamic memory allocation using pointers
+
+Syntax:
+  
+datatype *ptr
+
+ptr is the name of the pointer
+datatype is the type of the data pointing to
+
+How to use Pointers
+ 1.Pointer Declaration
+ 2.Pointer Initialization
+ 3.Pointer Dereferencing : Accessing the value stored in the memory address
+
+Declaration:
+===========
+
+int *ptr
+
+*dereference operator before its name
+ int is the type 
+ ptr is the name of the pointer
+
+Initialization: & "address of operator" to get the memory address of another variable
+=============== 
+
+int var=10;
+int *ptr; // Declaration
+ptr=&var; // Initialization 1  (or)
+int *ptr= &var; // Initialization 2
+
+Pointer Dereferencing :
+=====================
+Accessing the value stored in the memory address
+We use * operator to access the value
+
+
+Types  of Pointers:
+=================
+1.Integer pointer : pointer to an Integer (char,..etc)
+2.array Pointer: 
+
+   int val[3]= {10,20,30}
+   int *ptr=val
+
+3. Struct Pointer: 
+    pointer pointing to structure
+
+4. Function pointer: pointer pointing to functions is called function pointer
+
+int (*ptr)(int,char)
+
+getstdudentdata(int id, char city)
+
+5. Double pointer:  A pointer that holds address of another pointer. 
+
+pointer to a pointer  or double pointer
+
+ datatype **nameofptr
+
+
+6. Null Pointer: a pointer assigned with null value it doesn't point to any memory location
+
+datatype *ptr=NULL
+
+ptr=NULL
+
+
+7. Void pointer: 
+don't associate with any type, 
+called generic pointers can point to generic type
+
+void *ptr
+
+8. Wild Pointer: 
+pointers that haven't been initialized are called wild pointers
+
+int *x;
+int *y;
+char *name;
+
+9.Constant Pointer: 
+================
+memory address stored inside the pointer is constant and can't be modified
+It will always points to same memory address
+
+datatype * const ptrname
+
+
+Dangling Pointer: A pointer pointing to deleted memory(free memory) location is dangling pointer
+=============
+free meme
+int var=10;
+
+int *ptr=&var;
+
+deleted var;
+
+
+Size of Pointer:
+==============
+Size of a pointer is same for all types, it stores the address of type hence the size will beb same for all types
+64 bit ==> 8 bytes
+32 bit ==> 4 bytes
+
+1 byte=8 bits
+
+
+
+
+
+
+
+
+
+
