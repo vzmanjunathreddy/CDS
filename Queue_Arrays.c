@@ -26,7 +26,7 @@ void enqueue(Queue *q,int data){
    if(q->rear==MAX - 1){
       printf("Queue is full ");
    }
-   if( q->front=-1){
+   if( q->front==-1){
 
      q->front=0;
    }
