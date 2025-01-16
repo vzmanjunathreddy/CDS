@@ -4,6 +4,7 @@
 #define SIZE 40
 
 // Queue structure for BFS
+// Image url reference https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/?ref=lbp
 struct queue {
     int items[SIZE];
     int front;
