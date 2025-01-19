@@ -42,6 +42,9 @@ struct Graph* createGraph(int vertices) {
 void addEdge(struct Graph* graph, int src, int dest) {
     // Add edge from src to dest
     struct node* newNode = createNode(dest);
+    // 0 --> NULL
+    //0 -->1
+    //0-->2-->1
     newNode->next = graph->adjLists[src];
     graph->adjLists[src] = newNode;
 
@@ -85,16 +88,16 @@ void dfs(struct Graph* graph, int vertex) {
 
 // Driver function to test the DFS
 int main() {
-        system("cls");
+    system("cls");
     struct Graph* graph = createGraph(6);
 
-    //Adding edges to the graph
-    // addEdge(graph, 0, 1);
-    // addEdge(graph, 0, 2);
-    // addEdge(graph, 1, 2);
-    // addEdge(graph, 1, 3);
-    // addEdge(graph, 2, 4);
-    // addEdge(graph, 3, 4);
+    // Adding edges to the graph
+     addEdge(graph, 0, 1);
+     addEdge(graph, 0, 2);
+    //addEdge(graph, 1, 2);
+    //addEdge(graph, 1, 3);
+    //addEdge(graph, 2, 4);
+    //addEdge(graph, 3, 4);
 
     // Print the graph's adjacency list before applying DFS
     printf("Graph with edges (Adjacency List):\n");
@@ -102,7 +105,7 @@ int main() {
 
     // Start DFS from vertex 0
     printf("\nDFS starting from vertex 0:\n");
-    //dfs(graph, 0);
+   // dfs(graph, 0);
 
     return 0;
 }
